@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🌤️ Dashboard de Previsão do Tempo - Brasil
 
 Um dashboard interativo em Python/Flask que exibe dados meteorológicos em tempo real para todos os estados do Brasil.
@@ -224,3 +225,6 @@ Desenvolvido com ❤️ usando Python e Flask.
 
 **Nota**: Este dashboard foi criado para fins educacionais e demonstrativos. Os dados meteorológicos são fornecidos pela Open-Meteo API e podem ter pequenas variações em relação a outras fontes.
 
+=======
+# Projeto-dashboard-de-taxas
+>>>>>>> c3284d0aad525359c826042a59faa9f4c9a03a66
