@@ -1,230 +1,74 @@
-<<<<<<< HEAD
-# 🌤️ Dashboard de Previsão do Tempo - Brasil
+# 🌤️ Weather Forecast Dashboard - Brazil
+An interactive Python/Flask dashboard displaying real-time weather data for all Brazilian states.
 
-Um dashboard interativo em Python/Flask que exibe dados meteorológicos em tempo real para todos os estados do Brasil.
+# 📋 Features
+Responsive and modern interface
 
-## 📋 Características
+Real-time data via Open-Meteo API
 
-- **Interface moderna e responsiva** com design em gradiente
-- **Dados em tempo real** usando a API Open-Meteo (gratuita)
-- **Visualizações interativas** com Chart.js
-- **Cobertura completa** dos 27 estados brasileiros
-- **Previsão de 5 dias** para cada estado
-- **Visão geral nacional** com estatísticas agregadas
-- **Design mobile-friendly** que se adapta a diferentes telas
+Interactive charts with Chart.js
 
-## 🚀 Funcionalidades
+Coverage of all 27 states
 
-### 📊 Dados Meteorológicos
-- Temperatura atual
-- Umidade relativa
-- Velocidade do vento
-- Precipitação
-- Descrição das condições climáticas
+5-day forecast per state
 
-### 📈 Visualizações
-- Cards individuais para cada estado
-- Gráfico de barras comparativo (temperatura e umidade)
-- Previsão estendida de 5 dias
-- Estatísticas nacionais (média, máxima, mínima)
+National overview with aggregated stats
 
-### 🎛️ Controles
-- Seleção individual de estados
-- Carregamento de todos os estados
-- Botão de atualização dos dados
-- Interface intuitiva e responsiva
+Mobile-friendly design
 
-## 🛠️ Tecnologias Utilizadas
+# 🚀 Main Functions
+Current temperature, humidity, wind speed, precipitation
 
-- **Backend**: Python 3.11, Flask
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Visualização**: Chart.js
-- **API**: Open-Meteo (dados meteorológicos gratuitos)
-- **Banco de dados**: SQLite (opcional, já configurado)
+Comparative charts (temperature & humidity)
 
-## 📦 Instalação
+Extended 5-day forecast
 
-### Pré-requisitos
-- Python 3.11 ou superior
-- pip (gerenciador de pacotes Python)
+National statistics (average, max, min)
 
-### Passos de instalação
+State selection or full-country view
 
-1. **Clone ou baixe o projeto**
-   ```bash
-   # Se usando git
-   git clone <url-do-repositorio>
-   cd weather_dashboard
-   ```
+Refresh button for updated data
 
-2. **Ative o ambiente virtual**
-   ```bash
-   source venv/bin/activate
-   ```
+# 🛠️ Tech Stack
+Backend: Python 3.11, Flask
 
-3. **Instale as dependências**
-   ```bash
-   pip install -r requirements.txt
-   ```
+Frontend: HTML5, CSS3, JavaScript
 
-4. **Execute a aplicação**
-   ```bash
-   python src/main.py
-   ```
+Charts: Chart.js
 
-5. **Acesse o dashboard**
-   - Abra seu navegador
-   - Vá para: `http://localhost:5000`
+API: Open-Meteo (free, no key required)
 
-## 🎯 Como Usar
+Database: SQLite (optional)
 
-### Visualizar um Estado Específico
-1. Selecione um estado no dropdown
-2. Clique em "Carregar Estado"
-3. Visualize os dados meteorológicos e previsão
+# 📦 Installation
 
-### Visualizar Todos os Estados
-1. Clique em "Carregar Todos os Estados"
-2. Aguarde o carregamento (pode levar alguns segundos)
-3. Explore a visão geral e os cards individuais
+# Clone repository
+git clone https://github.com/LeandroTimoteo/Weather-Forecast-BRAZIL.git
+cd Weather-Forecast-BRAZIL
 
-### Atualizar Dados
-- Use o botão "🔄 Atualizar" para obter dados mais recentes
+# Activate virtual environment
+source venv/bin/activate   # Linux/Mac
+venv\Scripts\activate      # Windows
 
-## 📁 Estrutura do Projeto
+# Install dependencies
+pip install -r requirements.txt
 
-```
-weather_dashboard/
-├── src/
-│   ├── main.py              # Arquivo principal da aplicação Flask
-│   ├── routes/
-│   │   ├── weather.py       # Rotas da API de clima
-│   │   └── user.py          # Rotas de usuário (template)
-│   ├── models/
-│   │   └── user.py          # Modelos de banco de dados
-│   ├── static/
-│   │   └── index.html       # Interface do dashboard
-│   └── database/
-│       └── app.db           # Banco de dados SQLite
-├── venv/                    # Ambiente virtual Python
-├── requirements.txt         # Dependências do projeto
-└── README.md               # Este arquivo
-```
-
-## 🔧 API Endpoints
-
-### Estados
-- `GET /api/states` - Lista todos os estados brasileiros
-
-### Clima
-- `GET /api/weather/<codigo_estado>` - Dados de um estado específico
-- `GET /api/weather/all` - Dados de todos os estados
-
-### Exemplo de Resposta
-```json
-{
-  "success": true,
-  "state": {
-    "name": "São Paulo",
-    "capital": "São Paulo",
-    "lat": -23.5505,
-    "lon": -46.6333
-  },
-  "weather": {
-    "current": {
-      "temperature": 23.6,
-      "humidity": 60,
-      "wind_speed": 5.4,
-      "precipitation": 0.0,
-      "description": "Céu limpo"
-    },
-    "forecast": [...]
-  }
-}
-```
-
-## 🌐 Fonte dos Dados
-
-Os dados meteorológicos são obtidos da **Open-Meteo API**, uma API gratuita e confiável que fornece:
-- Dados meteorológicos em tempo real
-- Previsões precisas
-- Cobertura global
-- Sem necessidade de chave de API
-- Atualizações regulares
-
-## 🎨 Personalização
-
-### Modificar Cores
-Edite as variáveis CSS no arquivo `src/static/index.html`:
-```css
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-```
-
-### Adicionar Novos Estados/Cidades
-Modifique o dicionário `BRAZILIAN_STATES` em `src/routes/weather.py`.
-
-### Alterar Período de Previsão
-Ajuste o parâmetro `forecast_days` na função `get_weather_data_openmeteo()`.
-
-## 🚀 Deploy
-
-### Opção 1: Servidor Local
-```bash
+# Run application
 python src/main.py
-# Acesse: http://localhost:5000
-```
 
-### Opção 2: Servidor de Produção
-Para produção, use um servidor WSGI como Gunicorn:
-```bash
-pip install gunicorn
-gunicorn -w 4 -b 0.0.0.0:5000 src.main:app
-```
+## Access at: http://localhost:5000
 
-## 🐛 Solução de Problemas
+## 📄 License
 
-### Erro de Conexão com a API
-- Verifique sua conexão com a internet
-- A API Open-Meteo pode estar temporariamente indisponível
+This project is open-source under the MIT License.  
 
-### Dados não Carregam
-- Aguarde alguns segundos (a API pode demorar para responder)
-- Tente atualizar a página
-- Verifique o console do navegador para erros
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-### Erro de Dependências
-```bash
-# Reinstale as dependências
-pip install -r requirements.txt --force-reinstall
-```
+## 👨‍💻 Author  
 
-## 📱 Compatibilidade
+**Leandro Timóteo Silva — Systems Analyst**  
 
-- **Navegadores**: Chrome, Firefox, Safari, Edge (versões recentes)
-- **Dispositivos**: Desktop, tablet, smartphone
-- **Sistemas**: Windows, macOS, Linux
+- 📧 **E-mail:** [leandrinhots6@gmail.com](mailto:leandrinhots6@gmail.com)  
+- 💼 **LinkedIn:** [linkedin.com/in/leandro-timóteo-ads](https://www.linkedin.com/in/leandro-timóteo-ads)  
+- 📱 **WhatsApp:** [Enviar mensagem](https://wa.me/5583987830223)  
 
-## 🤝 Contribuição
-
-Para contribuir com o projeto:
-1. Faça um fork do repositório
-2. Crie uma branch para sua feature
-3. Implemente suas mudanças
-4. Teste thoroughly
-5. Envie um pull request
-
-## 📄 Licença
-
-Este projeto é de código aberto e está disponível sob a licença MIT.
-
-## 👨‍💻 Autor
-
-Desenvolvido com ❤️ usando Python e Flask.
-
----
-
-**Nota**: Este dashboard foi criado para fins educacionais e demonstrativos. Os dados meteorológicos são fornecidos pela Open-Meteo API e podem ter pequenas variações em relação a outras fontes.
-
-=======
-# Projeto-dashboard-de-taxas
->>>>>>> c3284d0aad525359c826042a59faa9f4c9a03a66
