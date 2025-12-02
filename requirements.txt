@@ -1,0 +1,4 @@
+Flask==2.3.3
+requests==2.32.5
+SQLAlchemy==2.0.36
+Flask-SQLAlchemy==3.1.1
